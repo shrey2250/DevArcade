@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevArcade — shrey2250's GitHub Arcade</title>
+  <meta name="description" content="GitHub repositories reimagined as a retro pixel-art arcade hall with live stats, CRT effects, and 8-bit audio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/arcade.css" />
+</head>
+<body>
+
+  <!-- CRT Scanlines Overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Particle Canvas (background) -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="pixel-spinner"></div>
+    <p class="load-text">LOADING PLAYER DATA...</p>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" style="display:none;">
+
+    <!-- Header Scoreboard -->
+    <header class="scoreboard">
+      <div class="score-title neon-text flicker">DEV&nbsp;ARCADE</div>
+      <div class="score-stats">
+        <span>PLAYER&nbsp;1:&nbsp;<b>shrey2250</b></span>
+        <span>HIGH&nbsp;SCORE:&nbsp;<b id="totalStars">0</b>⭐</span>
+        <span>LEVELS:&nbsp;<b id="totalRepos">0</b></span>
+        <span class="status-online">● STATUS:&nbsp;ONLINE</span>
+      </div>
+    </header>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        INSERT COIN TO EXPLORE shrey2250's REPOS &nbsp;·&nbsp; PRESS START &nbsp;·&nbsp;
+        HIGH SCORES LOADING &nbsp;·&nbsp; PLAYER 1 — READY &nbsp;·&nbsp;
+        INSERT COIN TO EXPLORE shrey2250's REPOS &nbsp;·&nbsp; PRESS START &nbsp;·&nbsp;
+        HIGH SCORES LOADING &nbsp;·&nbsp;
+      </div>
+    </div>
+
+    <!-- Sound Toggle -->
+    <button id="soundToggle" title="Toggle 8-bit music">🔊</button>
+
+    <!-- Arcade Floor -->
+    <main id="arcadeFloor" class="arcade-floor"></main>
+
+  </div>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="modal-overlay" style="display:none;" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕ CLOSE</button>
+      <h2 id="modalTitle" class="neon-text" style="font-size:0.75rem;margin-bottom:1rem;"></h2>
+      <p id="modalDesc" style="font-size:0.7rem;color:#aaa;margin-bottom:1rem;line-height:1.6;font-family:'Inter',sans-serif;"></p>
+      <div id="modalLangs" style="margin-bottom:1rem;"></div>
+      <h3 style="font-size:0.55rem;color:#00f5ff;margin-bottom:0.5rem;">▶ LEVEL HISTORY (RECENT COMMITS)</h3>
+      <ul id="modalCommits" style="list-style:none;padding:0;font-family:'Inter',sans-serif;font-size:0.7rem;color:#ccc;"></ul>
+      <a id="modalLink" href="#" target="_blank" class="play-btn">▶ PLAY GAME (VIEW REPO)</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="arcade-footer">
+    CREDITS: SHREY KARIYA &nbsp;·&nbsp; GITHUB: <a href="https://github.com/shrey2250" target="_blank">@shrey2250</a> &nbsp;·&nbsp; © 2026
+  </footer>
+
+  <script src="assets/js/arcade.js"></script>
+</body>
+</html>
